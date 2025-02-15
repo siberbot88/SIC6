@@ -1,15 +1,23 @@
+# kita bikin database
+db = client['MyDatabase']
+my_collection = db['SensorData']
 
-from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
+data_1 = {'temperature':88, 'humidity':45, 'timestamp':'12-05-2024 00:30:15'}
+data_2 = {'temperature':38.6, 'humidity':77, 'timestamp':'13-05-2024 00:30:15'}
+data_3= {'temperature':27.7, 'humidity':55.1, 'timestamp':'14-05-2024 00:30:15'}
 
-uri = "mongodb+srv://widjanarko010:VZ8kAhDO7WytLVcz@cluster0.no1lk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+result = my_collection.insert_many([data_1,data_2,data_3])
+print(result.inserted_ids)
 
-# Create a new client and connect to the server
-client = MongoClient(uri, server_api=ServerApi('1'))
+get_result = my_collection.find()
+for x in get_result:
+    print(x)
 
-# Send a ping to confirm a successful connection
-try:
-    client.admin.command('ping')
-    print("Pinged your deployment. You successfully connected to MongoDB!")
-except Exception as e:
-    print(e)
+# my_query = {"temperature":88}
+# my_collection.delete_one(my_query)
+
+# print('Setelah di delete_________')
+# get_result = my_collection.find()
+# for x in get_result:
+#     print(x)
+
