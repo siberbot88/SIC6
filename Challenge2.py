@@ -68,20 +68,20 @@ def simpan_data_sensorfarm():
         
         return jsonify(data)
 
-# @app.route('/sensor1/temperature/avg', methods=['GET'])
-# def get_avg_temperature():
-#     if not list_temporary:
-#         return jsonify({
-#             "message": "Tidak ada data suhu tersedia",
-#             "average_temperature": None
-#         }), 200
+@app.route('/sensor1/temperature/avg', methods=['GET'])
+def get_avg_temperature():
+    if not list_temporary:
+        return jsonify({
+            "message": "Tidak ada data suhu tersedia",
+            "average_temperature": None
+        }), 200
 
-#     total = sum(entry['temperature'] for entry in id)
-#     average_temp = total / len(id)
+    total = sum(entry['temperature'] for entry in id)
+    average_temp = total / len(id)
     
-#     return jsonify({
-#         "average_temperature": round(average_temp, 2)  # data dibulatkan
-#     })
+    return jsonify({
+        "average_temperature": round(average_temp, 2)  # data dibulatkan
+    })
 
 if __name__ == '__main__':
     app.run(port=1859, debug=True)

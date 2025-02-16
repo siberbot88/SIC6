@@ -2,6 +2,7 @@ import numpy as np
 def topic_learn(kalimat):
     return print(kalimat)
 
+
 # 1. Creating a NumPy array from a list
 arr = np.array([1, 2, 3, 4, 5, 6])
 topic_learn('1. Creating a NumPy array from a list')
@@ -86,3 +87,49 @@ determinans = np.linalg.det(A)
 print(determinans)
 
 
+# 12. Aggregation Function
+arr = np.array([1, 2, 3, 4, 5])
+
+topic_learn('\n12. Aggregation Function')
+
+print(np.sum(arr))
+print(np.min(arr))
+print(np.max(arr))
+print(np.cumsum(arr))
+
+
+# 13. Sorting and Searching
+arr = np.array([50, 20, 30, 10,40])
+
+topic_learn('\n13. Sorting and Searching')
+
+sorted_arr = np.sort(arr)
+print(sorted_arr)
+
+indices = np.where(arr > 30)
+print(indices)
+
+
+# 14. Concatenation and Splitting
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+
+topic_learn('\n14. Concatenation and Splitting')
+
+Concatenated = np.concatenate((arr1, arr2))
+print(Concatenated)
+
+split_arr = np.split(Concatenated, 2)
+print(split_arr)
+
+
+# 15. Data type Conversion
+arr = np.array([1.1, 2.2, 3.3])
+
+topic_learn('\n15. Data type Conversion')
+
+int_arr = arr.astype(int)
+print(int_arr)
+
+str_arr = arr.astype(str)
+print(str_arr)
